@@ -61,6 +61,6 @@ dependencies {
    implementation(libs.gson)
    implementation(libs.java.websocket)
    implementation(libs.androidx.runtime.livedata)
-   implementation("io.ktor:ktor-client-websockets:2.3.3")
-   implementation("io.ktor:ktor-client-okhttp:2.3.3")
+   implementation(libs.ktor.client.websockets)
+   implementation(libs.ktor.client.okhttp)
 }

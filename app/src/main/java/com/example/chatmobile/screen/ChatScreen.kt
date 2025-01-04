@@ -54,7 +54,7 @@ import java.util.Date
 fun ChatScreen() {
    val messages = listOf<ChatMessage>(
       ChatMessage(
-         content = "Je valide , je valide ce la magie cette musique. Je Viens de découvrir cette musique depuis la France . J’aime mon pays" ,
+         content = "@Vous avez creer le chat" ,
          sender = "yy" ,
          messageType = MessageType.JOIN ,
          time = Date().toString()
@@ -66,7 +66,7 @@ fun ChatScreen() {
          time = Date().toString()
       ) ,
       ChatMessage(
-         content = "Je valide , je valide ce la magie cette musique. Je Viens de découvrir cette musique depuis la France . J’aime mon pays" ,
+         content = "@yy a rejoint le chat " ,
          sender = "yy" ,
          messageType = MessageType.JOIN ,
          time = Date().toString()
@@ -84,7 +84,7 @@ fun ChatScreen() {
          time = Date().toString()
       ),
       ChatMessage(
-         content = "Je valide , je valide ce la magie cette musique. Je Viens de découvrir cette musique depuis la France . J’aime mon pays" ,
+         content = "@yy a quitter le chat" ,
          sender = "yy" ,
          messageType = MessageType.LEAVE ,
          time = Date().toString()
@@ -370,20 +370,20 @@ fun MessageBubble(content : String , isSent : Boolean) {
 }
 @Composable
 fun JoinChatMessageBubble(content : String ,messageType: MessageType) {
-  Row( modifier=Modifier.padding(horizontal = 5.dp).fillMaxWidth(),
+  Row( modifier=Modifier.padding(horizontal = 80.dp, vertical = 10.dp).fillMaxWidth(),
      verticalAlignment = Alignment.CenterVertically,
      horizontalArrangement = Arrangement.Center){
      Box(
         modifier = Modifier
            .background(
-              color =Color.Gray ,
+              color = if (messageType==MessageType.LEAVE)Color.Gray.copy(0.5f)else Color.Blue.copy(0.5f) ,
               shape = MessageBubbleShape(false)
            )
-           .padding(10.dp)
+           .padding(7.dp)
      ) {
         Text(
-           text = content ,
-           color = Color.LightGray ,
+           text =" --$content-- ",
+           color =if (messageType==MessageType.LEAVE)Color.Gray else Color.White,
            style = TextStyle(fontSize = 12.sp)
         )
      }
