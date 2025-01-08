@@ -128,7 +128,7 @@ fun ChatScreen() {
          modifier = Modifier
             .padding(paddingValue)
             .fillMaxSize()
-            .padding(10.dp) ,
+            .padding(10.dp),
       ) {
          items(items = messages) {
             if (it.messageType!=MessageType.CHAT ){
